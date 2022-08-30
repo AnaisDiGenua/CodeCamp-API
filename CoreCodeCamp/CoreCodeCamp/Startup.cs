@@ -1,3 +1,5 @@
+using AutoMapper;
+using CoreCodeCamp.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -9,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace CoreCodeCamp
@@ -25,6 +28,11 @@ namespace CoreCodeCamp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
+            services.AddDbContext<CampContext>();
+            services.AddScoped<ICampRepository, CampRepository>();
+
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddControllers();
         }
 
