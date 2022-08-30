@@ -21,6 +21,8 @@ namespace CoreCodeCamp.Controllers
             _mapper = mapper;
         }
 
+
+        //List
         [HttpGet]
         public async Task<ActionResult<CampModel[]>> Get(bool includeTalks = false)
         {
@@ -37,6 +39,8 @@ namespace CoreCodeCamp.Controllers
             }
         }
 
+
+        //Details
         [HttpGet("{moniker}")]
         public async Task<ActionResult<CampModel>> Get(string moniker)
         {
