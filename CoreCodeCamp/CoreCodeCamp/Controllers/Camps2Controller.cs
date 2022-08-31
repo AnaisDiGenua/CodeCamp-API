@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace CoreCodeCamp.Controllers
 {
+    //inserire la versione nell'url tra le {}
     [Route("api/v{version:apiVersion}/camps")]
     [ApiVersion("2.0")]
     [ApiController]
